@@ -1,7 +1,92 @@
-<!DOCTYPE html>
 <html>
+   <head>
+      <meta charset="utf-8" />
+         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+            <script>
+               
+                function qtdNaLinha( tm,  tal, taa, dist) {
+                     var result = parseInt(tm.value/(tal.value+dist)); 
+                     var resultalt = parseInt(tm.value/(taa.value+dist));
+                     qtdFinal(result, resultalt);
+                }
+                function qtdFinal(qtdCol, qtdLin){
+                     alert(qtdLin * qtdCol);
+                }
+                function Enviar() {
+                    var tmaterial = document.getElementById("tamid");
+                    var tal = document.getElementById("tamanholid");  
+                    var taa = document.getElementById("tamanhoaid");  
+                    if (tmaterial.value != "" && tal.value != "") {
+                        qtdNaLinha(tmaterial, tal, taa, 0.4);
+                    }
+                }
+
+
+
+
+                function qtdNaLinha2( tm,  ta, dist) {
+                     var result = parseInt(tm/(ta+dist)); 
+                     alert("Cabe "+result+" na linha.");
+                     return result;
+                }
+               function qtdFinal2(tamm, qtda, taml, tama){
+                     var result = qtdNaLinha2(tamm.value, taml.value, 0.4);
+                     var linhas = Math.ceil(qtda.value/result);
+ 					 alert('quantas linhas' + linhas);
+                     alert((linhas * (tama.value)+(0.4)));
+                }
+                function Enviar2() {
+                    var tmaterial = document.getElementById("tamid2");
+                    var tadesivol = document.getElementById("tamanhol2");
+                    var tadesivoa = document.getElementById("tamanhoa2");
+                    var qtd = document.getElementById("qtdid");
+                    if (tmaterial.value != "" && tadesivol.value != "") {
+                        qtdFinal2(tmaterial, qtd, tadesivol, tadesivoa);
+                    }
+                }
+            </script> 
+</head>
 <body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
+	<div style="text-align: center;">
+		<form name="meu_form">
+		  <h2>Cálculo do Adesivo (Metro) </h2>
+
+		 <label for="tamanho">Tamanho do Material</label> <br>
+		 <input type="number" id="tamid" placeholder="1000mm" required="required" name="tamanho" />  <br>
+		 
+		  <label for="largura">Largura</label> 
+		  <input  type="number" id="tamanholid" placeholder="10cm" required="required" name="largura" /> 
+
+		  <label style="padding-left: 20px;" for="altura">Altura</label> 
+		  <input type="number" id="tamanhoaid" placeholder="10cm" required="required" name="altura" /><br>
+
+		  <input type="submit" class="enviar" onclick="Enviar();" value="Verificar" />
+		    
+		</form>
+	</div>
+<br>
+	<div style="text-align: center;">
+		<form name="meu_form2">
+		  <h2>Cálculo do Adesivo (Quantidade = Metragem) </h2>
+
+		 <label for="tamanho">Tamanho do Material</label> <br>
+		 <input type="number" id="tamid2" placeholder="1000mm" required="required" name="tamanho" /><br>
+		 
+		 <label  for="qtd">Quantidade de Adesivos</label> <br>
+		 <input type="number" id="qtdid" placeholder="20und" required="required" name="qtd" />  <br>
+
+		  <label for="tamanhol">Largura</label> 
+		  <input type="number" id="tamanhol2" placeholder="10cm" required="required" name="tamanhol" />
+
+		  <label style="padding-left: 20px;" for="tamanhoa">Altura</label> 
+		  <input type="number" id="tamanhoa2" placeholder="10cm" required="required" name="tamanhoa" /><br>
+
+		  <input type="submit" class="enviar2" onclick="Enviar2();" value="Verificar" />
+		    
+		</form>
+	</div>
+
+
+
 </body>
 </html>
